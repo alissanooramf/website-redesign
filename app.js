@@ -30,7 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const studentSubmenu = document.getElementById('studentSubmenu');
     const viewProfileLink = document.getElementById('viewProfileLink');
     const resStudentProfile = document.getElementById('resStudentProfile');
+    const resExamRegistration = document.getElementById('resExamRegistration');
+    const resViewResults = document.getElementById('resViewResults');
+    const resApplyForForms = document.getElementById('resApplyForForms');
     const resGrievanceRedressal = document.getElementById('resGrievanceRedressal');
+    const resSurakshaProfile = document.getElementById('resSurakshaProfile');
     const crumbHome = document.getElementById('crumbHome');
 
     // Tab Panes
@@ -38,12 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabStudentProfile = document.getElementById('tabStudentProfile');
     const tabPaymentRequest = document.getElementById('tabPaymentRequest');
     const tabGrievanceRedressal = document.getElementById('tabGrievanceRedressal');
+    const tabExamRegistration = document.getElementById('tabExamRegistration');
+    const tabViewResults = document.getElementById('tabViewResults');
+    const tabApplyForForms = document.getElementById('tabApplyForForms');
+    const tabSurakshaProfile = document.getElementById('tabSurakshaProfile');
     const tabUpdateContactInfo = document.getElementById('tabUpdateContactInfo');
     const tabPanes = document.querySelectorAll('.tab-pane');
-
-    // Back Buttons
-    const backToResourcesProfile = document.getElementById('backToResourcesProfile');
-    const backToResourcesGrievance = document.getElementById('backToResourcesGrievance');
 
     // Profile Horizontal Tabs & Accordions
     const pTabBtns = document.querySelectorAll('.p-tab-btn');
@@ -176,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Switch Main Content Tab (e.g. Home vs Student Profile vs Payment Request vs Grievance Redressal)
+    // Switch Main Content Tab (e.g. Home vs Student Profile vs Payment Request vs Grievance Redressal vs Exam Registration vs View Results vs Apply for Forms vs Suraksha Profile)
     function switchMainTab(targetTabId) {
         tabPanes.forEach(pane => pane.classList.add('hidden'));
 
@@ -186,6 +190,14 @@ document.addEventListener('DOMContentLoaded', () => {
             tabPaymentRequest.classList.remove('hidden');
         } else if (targetTabId === 'tabGrievanceRedressal') {
             tabGrievanceRedressal.classList.remove('hidden');
+        } else if (targetTabId === 'tabExamRegistration') {
+            tabExamRegistration.classList.remove('hidden');
+        } else if (targetTabId === 'tabViewResults') {
+            tabViewResults.classList.remove('hidden');
+        } else if (targetTabId === 'tabApplyForForms') {
+            tabApplyForForms.classList.remove('hidden');
+        } else if (targetTabId === 'tabSurakshaProfile') {
+            tabSurakshaProfile.classList.remove('hidden');
         } else if (targetTabId === 'tabUpdateContactInfo') {
             tabUpdateContactInfo.classList.remove('hidden');
         } else {
@@ -262,14 +274,58 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    if (resExamRegistration) {
+        resExamRegistration.addEventListener('click', () => {
+            switchMainTab('tabExamRegistration');
+        });
+    }
+
+    if (resViewResults) {
+        resViewResults.addEventListener('click', () => {
+            switchMainTab('tabViewResults');
+        });
+    }
+
+    if (resApplyForForms) {
+        resApplyForForms.addEventListener('click', () => {
+            switchMainTab('tabApplyForForms');
+        });
+    }
+
     if (resGrievanceRedressal) {
         resGrievanceRedressal.addEventListener('click', () => {
             switchMainTab('tabGrievanceRedressal');
         });
     }
 
-    if (crumbHome) {
-        crumbHome.addEventListener('click', () => {
+    if (resSurakshaProfile) {
+        resSurakshaProfile.addEventListener('click', () => {
+            switchMainTab('tabSurakshaProfile');
+        });
+    }
+
+    // Back to Dashboard buttons
+    const backToResourcesExam = document.getElementById('backToResourcesExam');
+    const backToResourcesResults = document.getElementById('backToResourcesResults');
+    const backToResourcesForms = document.getElementById('backToResourcesForms');
+    const backToResourcesProfile = document.getElementById('backToResourcesProfile');
+    const backToResourcesGrievance = document.getElementById('backToResourcesGrievance');
+    const backToResourcesSuraksha = document.getElementById('backToResourcesSuraksha');
+
+    if (backToResourcesExam) {
+        backToResourcesExam.addEventListener('click', () => {
+            switchMainTab('tabHome');
+        });
+    }
+
+    if (backToResourcesResults) {
+        backToResourcesResults.addEventListener('click', () => {
+            switchMainTab('tabHome');
+        });
+    }
+
+    if (backToResourcesForms) {
+        backToResourcesForms.addEventListener('click', () => {
             switchMainTab('tabHome');
         });
     }
@@ -282,6 +338,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (backToResourcesGrievance) {
         backToResourcesGrievance.addEventListener('click', () => {
+            switchMainTab('tabHome');
+        });
+    }
+
+    if (backToResourcesSuraksha) {
+        backToResourcesSuraksha.addEventListener('click', () => {
+            switchMainTab('tabHome');
+        });
+    }
+
+    if (crumbHome) {
+        crumbHome.addEventListener('click', () => {
             switchMainTab('tabHome');
         });
     }

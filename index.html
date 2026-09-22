@@ -522,19 +522,19 @@
                                         </div>
                                         <span>Student Profile</span>
                                     </button>
-                                    <button class="resource-tile">
+                                    <button class="resource-tile" id="resExamRegistration" data-tab="tabExamRegistration">
                                         <div class="res-icon">
                                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line></svg>
                                         </div>
                                         <span>Exam Registration</span>
                                     </button>
-                                    <button class="resource-tile">
+                                    <button class="resource-tile" id="resViewResults" data-tab="tabViewResults">
                                         <div class="res-icon">
                                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
                                         </div>
                                         <span>View Results</span>
                                     </button>
-                                    <button class="resource-tile">
+                                    <button class="resource-tile" id="resApplyForForms" data-tab="tabApplyForForms">
                                         <div class="res-icon">
                                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v10m0 0l3-3m-3 3L9 9"></path><path d="M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"></path></svg>
                                         </div>
@@ -546,7 +546,7 @@
                                         </div>
                                         <span>Grievance Redressal</span>
                                     </button>
-                                    <button class="resource-tile">
+                                    <button class="resource-tile" id="resSurakshaProfile" data-tab="tabSurakshaProfile">
                                         <div class="res-icon">
                                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
                                         </div>
@@ -949,7 +949,192 @@
                     </div>
                 </div>
 
-                <!-- TAB 4: STUDENT PROFILE PAGE VIEW -->
+                <!-- TAB 4: EXAM REGISTRATION PAGE VIEW -->
+                <div id="tabExamRegistration" class="tab-pane hidden">
+                    <!-- Page Header with Back Button -->
+                    <div class="page-header-section">
+                        <button class="back-to-resources-btn" id="backToResourcesExam">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to Dashboard
+                        </button>
+                        <h1 class="page-title-bold">Exam Registration</h1>
+                        <p class="page-subtitle-gray">Register for upcoming examinations and manage your exam schedule.</p>
+                    </div>
+
+                    <!-- Exam Registration Content -->
+                    <div class="dash-card">
+                        <div class="card-title-bar">
+                            <div class="title-left">
+                                <div class="title-icon-circle icon-darkblue-bg">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                </div>
+                                <h3>Available Exams</h3>
+                            </div>
+                        </div>
+                        <div class="exam-list">
+                            <div class="exam-item">
+                                <div class="exam-info">
+                                    <h4>S7 Regular Examination</h4>
+                                    <p>Data Structures, Database Management Systems, Operating Systems</p>
+                                    <span class="exam-date">Registration Deadline: 15 Oct 2024</span>
+                                </div>
+                                <button class="btn-register">Register Now</button>
+                            </div>
+                            <div class="exam-item">
+                                <div class="exam-info">
+                                    <h4>S8 Regular Examination</h4>
+                                    <p>Computer Networks, Software Engineering, Project Work</p>
+                                    <span class="exam-date">Registration Deadline: 20 Oct 2024</span>
+                                </div>
+                                <button class="btn-register">Register Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 5: VIEW RESULTS PAGE VIEW -->
+                <div id="tabViewResults" class="tab-pane hidden">
+                    <!-- Page Header with Back Button -->
+                    <div class="page-header-section">
+                        <button class="back-to-resources-btn" id="backToResourcesResults">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to Dashboard
+                        </button>
+                        <h1 class="page-title-bold">View Results</h1>
+                        <p class="page-subtitle-gray">View your examination results and academic performance.</p>
+                    </div>
+
+                    <!-- Results Content -->
+                    <div class="dash-card">
+                        <div class="card-title-bar">
+                            <div class="title-left">
+                                <div class="title-icon-circle icon-darkblue-bg">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                                </div>
+                                <h3>Recent Results</h3>
+                            </div>
+                        </div>
+                        <div class="results-list">
+                            <div class="result-item">
+                                <div class="result-info">
+                                    <h4>S6 Semester Results</h4>
+                                    <p>CGPA: 8.5 | SGPA: 8.7</p>
+                                    <span class="result-date">Published: 10 Sep 2024</span>
+                                </div>
+                                <button class="btn-view-result">View Details</button>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-info">
+                                    <h4>S5 Semester Results</h4>
+                                    <p>CGPA: 8.3 | SGPA: 8.5</p>
+                                    <span class="result-date">Published: 15 Mar 2024</span>
+                                </div>
+                                <button class="btn-view-result">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 6: APPLY FOR FORMS PAGE VIEW -->
+                <div id="tabApplyForForms" class="tab-pane hidden">
+                    <!-- Page Header with Back Button -->
+                    <div class="page-header-section">
+                        <button class="back-to-resources-btn" id="backToResourcesForms">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to Dashboard
+                        </button>
+                        <h1 class="page-title-bold">Apply for Forms</h1>
+                        <p class="page-subtitle-gray">Apply for various certificates and official documents.</p>
+                    </div>
+
+                    <!-- Forms Content -->
+                    <div class="dash-card">
+                        <div class="card-title-bar">
+                            <div class="title-left">
+                                <div class="title-icon-circle icon-darkblue-bg">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v10m0 0l3-3m-3 3L9 9"></path><path d="M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"></path></svg>
+                                </div>
+                                <h3>Available Forms</h3>
+                            </div>
+                        </div>
+                        <div class="forms-list">
+                            <div class="form-item">
+                                <div class="form-info">
+                                    <h4>Transcript Certificate</h4>
+                                    <p>Official academic transcript for higher studies</p>
+                                    <span class="form-fee">Fee: ₹1,200</span>
+                                </div>
+                                <button class="btn-apply-form">Apply Now</button>
+                            </div>
+                            <div class="form-item">
+                                <div class="form-info">
+                                    <h4>Migration Certificate</h4>
+                                    <p>Certificate for transfer to other universities</p>
+                                    <span class="form-fee">Fee: ₹1,500</span>
+                                </div>
+                                <button class="btn-apply-form">Apply Now</button>
+                            </div>
+                            <div class="form-item">
+                                <div class="form-info">
+                                    <h4>Conduct Certificate</h4>
+                                    <p>Character and conduct verification certificate</p>
+                                    <span class="form-fee">Fee: ₹500</span>
+                                </div>
+                                <button class="btn-apply-form">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 7: SURAKSHA PROFILE PAGE VIEW -->
+                <div id="tabSurakshaProfile" class="tab-pane hidden">
+                    <!-- Page Header with Back Button -->
+                    <div class="page-header-section">
+                        <button class="back-to-resources-btn" id="backToResourcesSuraksha">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to Dashboard
+                        </button>
+                        <h1 class="page-title-bold">Suraksha Profile</h1>
+                        <p class="page-subtitle-gray">View and manage your Suraksha (safety) profile and emergency contacts.</p>
+                    </div>
+
+                    <!-- Suraksha Profile Content -->
+                    <div class="dash-card">
+                        <div class="card-title-bar">
+                            <div class="title-left">
+                                <div class="title-icon-circle icon-darkblue-bg">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                </div>
+                                <h3>Safety Profile Information</h3>
+                            </div>
+                        </div>
+                        <div class="suraksha-info">
+                            <div class="suraksha-item">
+                                <h4>Emergency Contact 1</h4>
+                                <p>Name: John Doe</p>
+                                <p>Phone: +91 98765 43210</p>
+                                <p>Relationship: Father</p>
+                            </div>
+                            <div class="suraksha-item">
+                                <h4>Emergency Contact 2</h4>
+                                <p>Name: Jane Doe</p>
+                                <p>Phone: +91 98765 43211</p>
+                                <p>Relationship: Mother</p>
+                            </div>
+                            <div class="suraksha-item">
+                                <h4>Blood Group</h4>
+                                <p>O+</p>
+                            </div>
+                            <div class="suraksha-item">
+                                <h4>Medical Conditions</h4>
+                                <p>None</p>
+                            </div>
+                        </div>
+                        <button class="btn-register">Update Profile</button>
+                    </div>
+                </div>
+
+                <!-- TAB 8: STUDENT PROFILE PAGE VIEW -->
                 <div id="tabStudentProfile" class="tab-pane hidden">
                     <!-- Breadcrumbs & Title -->
                     <div class="profile-header-top">
