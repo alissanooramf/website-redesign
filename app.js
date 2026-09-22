@@ -38,7 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabStudentProfile = document.getElementById('tabStudentProfile');
     const tabPaymentRequest = document.getElementById('tabPaymentRequest');
     const tabGrievanceRedressal = document.getElementById('tabGrievanceRedressal');
+    const tabUpdateContactInfo = document.getElementById('tabUpdateContactInfo');
     const tabPanes = document.querySelectorAll('.tab-pane');
+
+    // Back Buttons
+    const backToResourcesProfile = document.getElementById('backToResourcesProfile');
+    const backToResourcesGrievance = document.getElementById('backToResourcesGrievance');
 
     // Profile Horizontal Tabs & Accordions
     const pTabBtns = document.querySelectorAll('.p-tab-btn');
@@ -114,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loginView.classList.add('hidden');
             dashboardView.classList.remove('hidden');
 
-            showToast('Signed in successfully! Welcome GREESHMA PREETHA.', 'success');
+            showToast('Signed in successfully! Welcome SARAH JENKINS.', 'success');
         }, 800);
     });
 
@@ -181,6 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tabPaymentRequest.classList.remove('hidden');
         } else if (targetTabId === 'tabGrievanceRedressal') {
             tabGrievanceRedressal.classList.remove('hidden');
+        } else if (targetTabId === 'tabUpdateContactInfo') {
+            tabUpdateContactInfo.classList.remove('hidden');
         } else {
             tabHome.classList.remove('hidden');
         }
@@ -232,6 +239,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 switchMainTab('tabPaymentRequest');
             } else if (tab === 'tabGrievanceRedressal') {
                 switchMainTab('tabGrievanceRedressal');
+            } else if (tab === 'tabUpdateContactInfo') {
+                switchMainTab('tabUpdateContactInfo');
             } else {
                 const label = item.querySelector('.nav-label').textContent;
                 showToast(`Opening ${label}...`, 'info');
@@ -261,6 +270,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (crumbHome) {
         crumbHome.addEventListener('click', () => {
+            switchMainTab('tabHome');
+        });
+    }
+
+    if (backToResourcesProfile) {
+        backToResourcesProfile.addEventListener('click', () => {
+            switchMainTab('tabHome');
+        });
+    }
+
+    if (backToResourcesGrievance) {
+        backToResourcesGrievance.addEventListener('click', () => {
             switchMainTab('tabHome');
         });
     }

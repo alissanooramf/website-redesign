@@ -1217,6 +1217,7 @@ body {
     gap: 16px;
     align-items: center;
     justify-content: center;
+    flex: 1;
 }
 
 .wallet-icon-bg {
@@ -1235,13 +1236,14 @@ body {
 .fee-link-btn {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     font-size: 0.82rem;
     font-weight: 700;
     color: var(--accent-blue);
     text-decoration: none;
     gap: 6px;
+    text-align: center;
 }
 
 .fee-link-btn svg { width: 16px; height: 16px; }
@@ -2420,4 +2422,27 @@ body {
 
     .top-header { padding: 16px 24px 0 24px; }
     .right-footer-desktop { display: none; }
+}
+
+.back-to-resources-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    margin-bottom: 16px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.back-to-resources-btn:hover {
+    color: var(--text-primary);
+    background: #f1f5f9;
+    border-color: #94a3b8;
 }
