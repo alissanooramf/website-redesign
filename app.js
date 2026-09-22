@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // DOM Elements
+    // Views
+    const loginView = document.getElementById('loginView');
+    const dashboardView = document.getElementById('dashboardView');
+
+    // Login Form Elements
     const loginForm = document.getElementById('loginForm');
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
@@ -12,7 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnText = submitBtn.querySelector('.btn-text');
     const btnArrow = submitBtn.querySelector('.btn-arrow');
     const loginSpinner = document.getElementById('loginSpinner');
-    // Modals
+
+    // Dashboard Elements
+    const profilePillBtn = document.getElementById('profilePillBtn');
+    const userDropdownMenu = document.getElementById('userDropdownMenu');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const changePasswordBtn = document.getElementById('changePasswordBtn');
+    const sidebarNavItems = document.querySelectorAll('.sidebar-nav .nav-item');
+    const sidebarHelpBox = document.getElementById('sidebarHelpBox');
+
+    // Modals & Toast
     const topHelpBtn = document.getElementById('topHelpBtn');
     const supportModalBtn = document.getElementById('supportModalBtn');
     const forgotCredentialsBtn = document.getElementById('forgotCredentialsBtn');
@@ -23,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const toastContainer = document.getElementById('toastContainer');
     const recoveryForm = document.getElementById('recoveryForm');
 
-    // Password Toggle Visibility
+    // Toggle Password Visibility
     togglePasswordBtn.addEventListener('click', () => {
         const isPassword = passwordInput.type === 'password';
         passwordInput.type = isPassword ? 'text' : 'password';
@@ -36,18 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Input Validation Helpers
+    // Form Validation Helper
     function validateInputs() {
         let isValid = true;
-        
-        // Reset errors
         usernameError.textContent = '';
         passwordError.textContent = '';
         usernameInput.classList.remove('invalid');
         passwordInput.classList.remove('invalid');
 
         if (!usernameInput.value.trim()) {
-            usernameError.textContent = 'Please enter your username';
+            usernameError.textContent = 'Please enter your username or Register No.';
             usernameInput.classList.add('invalid');
             isValid = false;
         }
@@ -61,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return isValid;
     }
 
-    // Form Submission
+    // Login Action
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -75,18 +86,22 @@ document.addEventListener('DOMContentLoaded', () => {
         btnArrow.classList.add('hidden');
         loginSpinner.classList.remove('hidden');
 
-        // Simulate API call authentication
+        // Simulate Authentication Delay
         setTimeout(() => {
             submitBtn.disabled = false;
             btnText.textContent = 'Login';
             btnArrow.classList.remove('hidden');
             loginSpinner.classList.add('hidden');
 
-            showToast('Signed in successfully to Student Portal!', 'success');
-        }, 1200);
+            // Switch to Dashboard View
+            loginView.classList.add('hidden');
+            dashboardView.classList.remove('hidden');
+
+            showToast('Signed in successfully! Welcome GREESHMA PREETHA.', 'success');
+        }, 800);
     });
 
-    // Clear input errors on typing
+    // Clear validation errors on typing
     usernameInput.addEventListener('input', () => {
         if (usernameInput.value.trim()) {
             usernameError.textContent = '';
@@ -101,7 +116,57 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Modals Handling
+    // User Profile Dropdown Toggle
+    if (profilePillBtn && userDropdownMenu) {
+        profilePillBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            userDropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', () => {
+            if (!userDropdownMenu.classList.contains('hidden')) {
+                userDropdownMenu.classList.add('hidden');
+            }
+        });
+    }
+
+    // Logout Action
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            userDropdownMenu.classList.add('hidden');
+            dashboardView.classList.add('hidden');
+            loginView.classList.remove('hidden');
+            showToast('Logged out successfully.', 'info');
+        });
+    }
+
+    // Change Password Action
+    if (changePasswordBtn) {
+        changePasswordBtn.addEventListener('click', () => {
+            userDropdownMenu.classList.add('hidden');
+            openModal(forgotModal);
+        });
+    }
+
+    // Sidebar Navigation Active Switching
+    sidebarNavItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            sidebarNavItems.forEach(nav => nav.classList.remove('active'));
+            item.classList.add('active');
+            
+            const label = item.querySelector('.nav-label').textContent;
+            showToast(`Navigated to ${label} section.`, 'info');
+        });
+    });
+
+    if (sidebarHelpBox) {
+        sidebarHelpBox.addEventListener('click', () => {
+            openModal(supportModal);
+        });
+    }
+
+    // Modals
     function openModal(modal) {
         modal.classList.remove('hidden');
     }
@@ -110,28 +175,28 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.add('hidden');
     }
 
-    topHelpBtn.addEventListener('click', () => openModal(supportModal));
-    supportModalBtn.addEventListener('click', () => openModal(supportModal));
-    forgotCredentialsBtn.addEventListener('click', () => openModal(forgotModal));
+    if (topHelpBtn) topHelpBtn.addEventListener('click', () => openModal(supportModal));
+    if (supportModalBtn) supportModalBtn.addEventListener('click', () => openModal(supportModal));
+    if (forgotCredentialsBtn) forgotCredentialsBtn.addEventListener('click', () => openModal(forgotModal));
 
-    closeForgotModal.addEventListener('click', () => closeModal(forgotModal));
-    closeSupportModal.addEventListener('click', () => closeModal(supportModal));
+    if (closeForgotModal) closeForgotModal.addEventListener('click', () => closeModal(forgotModal));
+    if (closeSupportModal) closeSupportModal.addEventListener('click', () => closeModal(supportModal));
 
-    // Close modal on click outside
     [forgotModal, supportModal].forEach(modal => {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal(modal);
-            }
-        });
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal);
+                }
+            });
+        }
     });
 
-    // Recovery Form Submit
     if (recoveryForm) {
         recoveryForm.addEventListener('submit', (e) => {
             e.preventDefault();
             closeModal(forgotModal);
-            showToast('Recovery instructions have been sent to your registered email.', 'success');
+            showToast('Recovery instructions sent to registered email.', 'success');
         });
     }
 
@@ -152,6 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
             toast.style.transform = 'translateY(10px)';
             toast.style.transition = 'all 0.3s ease';
             setTimeout(() => toast.remove(), 300);
-        }, 4000);
+        }, 3500);
     }
 });
