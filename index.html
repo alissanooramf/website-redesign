@@ -145,7 +145,6 @@
 
                     <!-- Form -->
                     <form class="login-form" id="loginForm" autocomplete="on" novalidate>
-
                         <!-- Username Input -->
                         <div class="form-group">
                             <label for="username" class="form-label">Username</label>
@@ -228,6 +227,13 @@
         <!-- Top Navbar -->
         <header class="dash-header">
             <div class="dash-header-left">
+                <button class="menu-toggle-btn" id="menuToggleBtn" aria-label="Toggle Sidebar Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
                 <img src="assets/logo.svg" alt="KTU Logo" class="dash-logo">
                 <div class="dash-brand-title">
                     <h2>APJ Abdul Kalam Technological University</h2>
@@ -242,7 +248,7 @@
                             <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                             <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                         </svg>
-                        <span class="notif-badge">1</span>
+                        <span class="notif-badge">3</span>
                     </button>
                 </div>
 
@@ -281,20 +287,105 @@
         <!-- Main Body: Sidebar + Dashboard Content -->
         <div class="dash-body">
             <!-- Left Dark Navy Sidebar -->
-            <aside class="dash-sidebar">
+            <aside class="dash-sidebar" id="dashSidebar">
                 <nav class="sidebar-nav">
-                    <a href="#" class="nav-item active">
+                    <!-- Home item -->
+                    <a href="#" class="nav-item active" data-tab="tabHome">
                         <span class="nav-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                         </span>
                         <span class="nav-label">Home</span>
                     </a>
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                        </span>
-                        <span class="nav-label">Student</span>
-                    </a>
+
+                    <!-- Student parent item with dropdown arrow -->
+                    <div class="nav-parent-item" id="studentParentItem">
+                        <a href="#" class="nav-item nav-has-submenu">
+                            <span class="nav-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            </span>
+                            <span class="nav-label">Student</span>
+                            <svg class="submenu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </a>
+                        
+                        <!-- Collapsible Submenu (Deduplicated) -->
+                        <div class="submenu-list" id="studentSubmenu">
+                            <a href="#" class="submenu-item" data-tab="tabStudentProfile">
+                                <span class="sub-dot"></span>
+                                <span>My Profile</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>Student Data Correction Request</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>Course/Semester Exam Registration</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>Cancellation Requests</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>Minor Degree</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>Admission Cancellation / Course Completion</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>Honours Degree</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>Special FE Registration</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>My Fees</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>Program Duration Extension</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>PWD Eligibility / Grace Mark Request</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>Malpractice Decisions</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>Non-KTU / Previously Done Course Registration Request</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>My Payment Transactions</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>Student Condonation Request</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>Convocation</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>Feedback Form</span>
+                            </a>
+                            <a href="#" class="submenu-item">
+                                <span class="sub-dot"></span>
+                                <span>Reports</span>
+                            </a>
+                        </div>
+                    </div>
+
                     <a href="#" class="nav-item">
                         <span class="nav-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
@@ -348,293 +439,577 @@
 
             <!-- Dashboard Main Content Area -->
             <main class="dash-content">
-                <!-- Welcome Banner Row -->
-                <div class="welcome-banner-row">
-                    <div class="welcome-text-block">
-                        <span class="salutation">Good morning,</span>
-                        <h1 class="student-fullname">GREESHMA PREETHA <span class="wave-emoji">👋</span></h1>
-                        <p class="welcome-subtext">Welcome to your student e-Governance portal</p>
+                <!-- TAB 1: HOME DASHBOARD PAGE -->
+                <div id="tabHome" class="tab-pane">
+                    <!-- Welcome Banner Row -->
+                    <div class="welcome-banner-row">
+                        <div class="welcome-text-block">
+                            <span class="salutation">Good morning,</span>
+                            <h1 class="student-fullname">GREESHMA PREETHA <span class="wave-emoji">👋</span></h1>
+                            <p class="welcome-subtext">Welcome to your student e-Governance portal</p>
+                        </div>
+
+                        <div class="enrollment-status-card">
+                            <div class="calendar-badge-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            </div>
+                            <div class="enroll-info">
+                                <span class="acad-year">Academic Year <strong>2023 - 2024</strong></span>
+                                <span class="enrolled-badge"><span class="badge-dot"></span> Status: Enrolled</span>
+                            </div>
+                            <div class="regno-info">
+                                <span class="reg-label">Register No.</span>
+                                <span class="reg-val">MCE23CS057</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="enrollment-status-card">
-                        <div class="calendar-badge-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <!-- Main Content Grid -->
+                    <div class="dash-grid-layout">
+                        <!-- Left Grid Column -->
+                        <div class="grid-col-left">
+                            <!-- Card: Profile Overview & Fee Details side-by-side -->
+                            <div class="profile-fee-wrapper">
+                                <!-- Profile Overview Card -->
+                                <div class="dash-card profile-card">
+                                    <div class="card-title-bar">
+                                        <div class="title-left">
+                                            <div class="title-icon-circle icon-blue-bg">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                            </div>
+                                            <h3>Profile Overview</h3>
+                                        </div>
+                                        <a href="#" class="card-link" id="viewProfileLink">View Profile &rarr;</a>
+                                    </div>
+                                    <div class="profile-body">
+                                        <div class="profile-avatar-large">
+                                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="profile-details-table">
+                                            <div class="detail-row">
+                                                <span class="d-label">Name</span>
+                                                <span class="d-colon">:</span>
+                                                <span class="d-val strong-text">GREESHMA PREETHA</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span class="d-label">Register No.</span>
+                                                <span class="d-colon">:</span>
+                                                <span class="d-val blue-text">MCE23CS057</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span class="d-label">Programme</span>
+                                                <span class="d-colon">:</span>
+                                                <span class="d-val">B.Tech Computer Science & Engineering</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span class="d-label">College</span>
+                                                <span class="d-colon">:</span>
+                                                <span class="d-val">Marian Engineering College</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span class="d-label">Admission Year</span>
+                                                <span class="d-colon">:</span>
+                                                <span class="d-val">2023</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Fee Details Card -->
+                                <div class="dash-card fee-card">
+                                    <h3>Fee Details</h3>
+                                    <div class="fee-body">
+                                        <div class="wallet-icon-bg">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M6 8h12"></path><circle cx="16" cy="14" r="2"></circle></svg>
+                                        </div>
+                                        <a href="#" class="fee-link-btn">
+                                            <span>Click here to view your fee details</span>
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Suraksha Card -->
+                            <div class="dash-card suraksha-card">
+                                <div class="card-title-bar border-none">
+                                    <div class="title-left">
+                                        <div class="title-icon-circle icon-darkblue-bg">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                        </div>
+                                        <h3>Suraksha</h3>
+                                    </div>
+                                </div>
+                                <div class="suraksha-content-row">
+                                    <div class="suraksha-left">
+                                        <div class="verified-shield-icon">
+                                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                                            </svg>
+                                        </div>
+                                        <span class="suraksha-text"><a href="#">Click here</a> to view your Suraksha Profile</span>
+                                    </div>
+                                    <div class="suraksha-meta">
+                                        <span>Academic Year: <strong>2023 - 2024</strong></span>
+                                        <span>Status: <strong class="badge-green-sm">Enrolled</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Alerts Card -->
+                            <div class="dash-card alerts-card">
+                                <div class="card-title-bar border-none">
+                                    <div class="title-left">
+                                        <div class="title-icon-circle icon-blue-bg">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                                        </div>
+                                        <h3>Alerts</h3>
+                                    </div>
+                                </div>
+                                <div class="alerts-body">
+                                    <div class="megaphone-icon-bg">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-4.5a2 2 0 0 1 1.48 0l8 4.5A2 2 0 0 1 22 8.35z"></path><polyline points="2 10 12 15 22 10"></polyline></svg>
+                                    </div>
+                                    <div class="alerts-text">
+                                        <h4>You have no alerts at this time.</h4>
+                                        <p>We will notify you here about important updates from the university.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Feedback Form Card -->
+                            <div class="dash-card feedback-card">
+                                <div class="card-title-bar border-none">
+                                    <div class="title-left">
+                                        <div class="title-icon-circle icon-darkblue-bg">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                                        </div>
+                                        <h3>Feedback Form</h3>
+                                    </div>
+                                </div>
+                                <div class="feedback-body">
+                                    <div class="purple-doc-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+                                    </div>
+                                    <span><a href="#">Click here</a> to view the Anti-Ragging Feedback Form.</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="enroll-info">
-                            <span class="acad-year">Academic Year <strong>2023 - 2024</strong></span>
-                            <span class="enrolled-badge"><span class="badge-dot"></span> Status: Enrolled</span>
-                        </div>
-                        <div class="regno-info">
-                            <span class="reg-label">Register No.</span>
-                            <span class="reg-val">MCE23CS057</span>
+
+                        <!-- Right Grid Column -->
+                        <div class="grid-col-right">
+                            <!-- Resources Card -->
+                            <div class="dash-card resources-card">
+                                <div class="card-title-bar">
+                                    <div class="title-left">
+                                        <div class="title-icon-circle icon-blue-bg">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                                        </div>
+                                        <h3>Resources</h3>
+                                    </div>
+                                    <a href="#" class="card-link">View Details &rarr;</a>
+                                </div>
+                                <div class="resources-grid">
+                                    <button class="resource-tile" id="resStudentProfile">
+                                        <div class="res-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                        </div>
+                                        <span>Student Profile</span>
+                                    </button>
+                                    <button class="resource-tile">
+                                        <div class="res-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line></svg>
+                                        </div>
+                                        <span>Exam Registration</span>
+                                    </button>
+                                    <button class="resource-tile">
+                                        <div class="res-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                                        </div>
+                                        <span>View Results</span>
+                                    </button>
+                                    <button class="resource-tile">
+                                        <div class="res-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v10m0 0l3-3m-3 3L9 9"></path><path d="M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"></path></svg>
+                                        </div>
+                                        <span>Apply for Forms</span>
+                                    </button>
+                                    <button class="resource-tile">
+                                        <div class="res-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                        </div>
+                                        <span>Grievance Redressal</span>
+                                    </button>
+                                    <button class="resource-tile">
+                                        <div class="res-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                        </div>
+                                        <span>Suraksha Profile</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Important Information Card -->
+                            <div class="dash-card important-info-card">
+                                <div class="card-title-bar">
+                                    <div class="title-left">
+                                        <div class="title-icon-circle icon-darkblue-bg">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                                        </div>
+                                        <h3>Important Information</h3>
+                                    </div>
+                                    <a href="#" class="card-link">View All &rarr;</a>
+                                </div>
+                                <div class="info-alert-box">
+                                    <div class="green-doc-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                                    </div>
+                                    <p>Stay updated with the latest notifications, circulars and announcements from the university.</p>
+                                </div>
+                            </div>
+
+                            <!-- Important Dates Card (Timeline) -->
+                            <div class="dash-card dates-card">
+                                <div class="card-title-bar">
+                                    <div class="title-left">
+                                        <div class="title-icon-circle icon-darkblue-bg">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                        </div>
+                                        <h3>Important Dates</h3>
+                                    </div>
+                                    <a href="#" class="card-link">View All &rarr;</a>
+                                </div>
+                                <div class="timeline-list">
+                                    <div class="timeline-item">
+                                        <div class="tl-date-badge date-blue">
+                                            <span class="month">OCT</span>
+                                            <span class="day">12</span>
+                                        </div>
+                                        <div class="tl-content">
+                                            <h4>S7 Regular Examination</h4>
+                                            <p class="tl-desc">Data Structures</p>
+                                            <span class="tl-time">10:00 AM - 01:00 PM</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="timeline-item">
+                                        <div class="tl-date-badge date-green">
+                                            <span class="month">OCT</span>
+                                            <span class="day">15</span>
+                                        </div>
+                                        <div class="tl-content">
+                                            <h4>Last Date for Exam Registration</h4>
+                                            <p class="tl-desc">(for S7)</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="timeline-item">
+                                        <div class="tl-date-badge date-yellow">
+                                            <span class="month">OCT</span>
+                                            <span class="day">20</span>
+                                        </div>
+                                        <div class="tl-content">
+                                            <h4>Internal Marks Publication</h4>
+                                            <p class="tl-desc">Database Management Systems</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="timeline-item">
+                                        <div class="tl-date-badge date-red">
+                                            <span class="month">OCT</span>
+                                            <span class="day">28</span>
+                                        </div>
+                                        <div class="tl-content">
+                                            <h4>Fee Payment Deadline</h4>
+                                            <p class="tl-desc">Semester 7</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Main Content Grid -->
-                <div class="dash-grid-layout">
-                    <!-- Left Grid Column -->
-                    <div class="grid-col-left">
-                        <!-- Card: Profile Overview & Fee Details side-by-side -->
-                        <div class="profile-fee-wrapper">
-                            <!-- Profile Overview Card -->
-                            <div class="dash-card profile-card">
-                                <div class="card-title-bar">
-                                    <div class="title-left">
-                                        <div class="title-icon-circle icon-blue-bg">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                        </div>
-                                        <h3>Profile Overview</h3>
-                                    </div>
-                                    <a href="#" class="card-link">View Profile &rarr;</a>
+                <!-- TAB 2: STUDENT PROFILE PAGE VIEW -->
+                <div id="tabStudentProfile" class="tab-pane hidden">
+                    <!-- Breadcrumbs & Title -->
+                    <div class="profile-header-top">
+                        <div class="breadcrumb-trail">
+                            <span class="crumb-link" id="crumbHome">Home</span> &gt; 
+                            <span class="crumb-link">Student</span> &gt; 
+                            <span class="crumb-active">My Profile</span>
+                        </div>
+                        <h1 class="page-title-bold">Student Profile</h1>
+                        <p class="page-subtitle-gray">View your basic profile information and access related academic details.</p>
+                    </div>
+
+                    <!-- Main Student Summary Card -->
+                    <div class="dash-card profile-summary-card">
+                        <div class="summary-left">
+                            <div class="avatar-camera-wrapper">
+                                <div class="large-profile-avatar">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                    </svg>
                                 </div>
-                                <div class="profile-body">
-                                    <div class="profile-avatar-large">
-                                        <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                                        </svg>
-                                    </div>
-                                    <div class="profile-details-table">
-                                        <div class="detail-row">
-                                            <span class="d-label">Name</span>
-                                            <span class="d-colon">:</span>
-                                            <span class="d-val strong-text">GREESHMA PREETHA</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span class="d-label">Register No.</span>
-                                            <span class="d-colon">:</span>
-                                            <span class="d-val blue-text">MCE23CS057</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span class="d-label">Programme</span>
-                                            <span class="d-colon">:</span>
-                                            <span class="d-val">B.Tech Computer Science & Engineering</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span class="d-label">College</span>
-                                            <span class="d-colon">:</span>
-                                            <span class="d-val">Marian Engineering College</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span class="d-label">Admission Year</span>
-                                            <span class="d-colon">:</span>
-                                            <span class="d-val">2023</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <button class="camera-btn" aria-label="Upload Profile Picture">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                                        <circle cx="12" cy="13" r="4"></circle>
+                                    </svg>
+                                </button>
                             </div>
 
-                            <!-- Fee Details Card -->
-                            <div class="dash-card fee-card">
-                                <h3>Fee Details</h3>
-                                <div class="fee-body">
-                                    <div class="wallet-icon-bg">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M6 8h12"></path><circle cx="16" cy="14" r="2"></circle></svg>
-                                    </div>
-                                    <a href="#" class="fee-link-btn">
-                                        <span>Click here to view your fee details</span>
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                                    </a>
+                            <div class="profile-meta-table">
+                                <div class="detail-row">
+                                    <span class="d-label">Student Name</span>
+                                    <span class="d-colon">:</span>
+                                    <span class="d-val strong-navy">GREESHMA PREETHA</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="d-label">Register No.</span>
+                                    <span class="d-colon">:</span>
+                                    <span class="d-val blue-bold">MCE23CS057</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="d-label">Programme</span>
+                                    <span class="d-colon">:</span>
+                                    <span class="d-val">B.Tech Computer Science & Engineering</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="d-label">College</span>
+                                    <span class="d-colon">:</span>
+                                    <span class="d-val">Marian Engineering College</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="d-label">Admission Year</span>
+                                    <span class="d-colon">:</span>
+                                    <span class="d-val">2023</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Suraksha Card -->
-                        <div class="dash-card suraksha-card">
-                            <div class="card-title-bar border-none">
-                                <div class="title-left">
-                                    <div class="title-icon-circle icon-darkblue-bg">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                                    </div>
-                                    <h3>Suraksha</h3>
-                                </div>
-                            </div>
-                            <div class="suraksha-content-row">
-                                <div class="suraksha-left">
-                                    <div class="verified-shield-icon">
-                                        <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
-                                        </svg>
-                                    </div>
-                                    <span class="suraksha-text"><a href="#">Click here</a> to view your Suraksha Profile</span>
-                                </div>
-                                <div class="suraksha-meta">
-                                    <span>Academic Year: <strong>2023 - 2024</strong></span>
-                                    <span>Status: <strong class="badge-green-sm">Enrolled</strong></span>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="summary-divider"></div>
 
-                        <!-- Alerts Card -->
-                        <div class="dash-card alerts-card">
-                            <div class="card-title-bar border-none">
-                                <div class="title-left">
-                                    <div class="title-icon-circle icon-blue-bg">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-                                    </div>
-                                    <h3>Alerts</h3>
-                                </div>
+                        <div class="summary-right">
+                            <div class="signature-box">
+                                <svg class="sig-path" viewBox="0 0 160 40">
+                                    <path d="M10 25 C30 5, 45 35, 65 15 C80 5, 95 30, 120 18 C135 10, 145 25, 155 12" stroke="#1e3a8a" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                </svg>
+                                <span class="sig-caption">Signature Not Available</span>
                             </div>
-                            <div class="alerts-body">
-                                <div class="megaphone-icon-bg">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-4.5a2 2 0 0 1 1.48 0l8 4.5A2 2 0 0 1 22 8.35z"></path><polyline points="2 10 12 15 22 10"></polyline></svg>
-                                </div>
-                                <div class="alerts-text">
-                                    <h4>You have no alerts at this time.</h4>
-                                    <p>We will notify you here about important updates from the university.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Feedback Form Card -->
-                        <div class="dash-card feedback-card">
-                            <div class="card-title-bar border-none">
-                                <div class="title-left">
-                                    <div class="title-icon-circle icon-darkblue-bg">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-                                    </div>
-                                    <h3>Feedback Form</h3>
-                                </div>
-                            </div>
-                            <div class="feedback-body">
-                                <div class="purple-doc-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
-                                </div>
-                                <span><a href="#">Click here</a> to view the Anti-Ragging Feedback Form.</span>
+                            <div class="suraksha-covered-pill">
+                                <span class="check-circle">✓</span>
+                                <span>Suraksha Covered</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right Grid Column -->
-                    <div class="grid-col-right">
-                        <!-- Resources Card -->
-                        <div class="dash-card resources-card">
-                            <div class="card-title-bar">
-                                <div class="title-left">
-                                    <div class="title-icon-circle icon-blue-bg">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-                                    </div>
-                                    <h3>Resources</h3>
+                    <!-- Profile Horizontal Navigation Tabs -->
+                    <div class="profile-tabs-nav">
+                        <button class="p-tab-btn active" data-ptab="personal">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <span>Personal</span>
+                        </button>
+                        <button class="p-tab-btn" data-ptab="curriculum">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                            <span>Curriculum</span>
+                        </button>
+                        <button class="p-tab-btn" data-ptab="semesters">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                            <span>Semesters</span>
+                        </button>
+                        <button class="p-tab-btn" data-ptab="examresult">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                            <span>Exam / Result</span>
+                        </button>
+                        <button class="p-tab-btn" data-ptab="certificates">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15l-2 5l3 -2l3 2l-2 -5"></path><circle cx="12" cy="9" r="6"></circle></svg>
+                            <span>Certificates</span>
+                        </button>
+                    </div>
+
+                    <!-- Personal Tab Content: Accordions -->
+                    <div class="profile-accordions-container">
+                        <!-- Accordion 1: Basic Details (Expanded) -->
+                        <div class="accordion-item expanded">
+                            <button class="accordion-header">
+                                <div class="acc-title">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                    <span>Basic Details</span>
                                 </div>
-                                <a href="#" class="card-link">View Details &rarr;</a>
-                            </div>
-                            <div class="resources-grid">
-                                <button class="resource-tile">
-                                    <div class="res-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-body">
+                                <div class="grid-2col-details">
+                                    <!-- Left Sub-column -->
+                                    <div class="details-column">
+                                        <div class="grid-detail-row">
+                                            <span class="gd-icon">👤</span>
+                                            <span class="gd-label">Gender</span>
+                                            <span class="gd-val">Female</span>
+                                        </div>
+                                        <div class="grid-detail-row">
+                                            <span class="gd-icon">📅</span>
+                                            <span class="gd-label">Date of Birth</span>
+                                            <span class="gd-val">03/01/2006</span>
+                                        </div>
+                                        <div class="grid-detail-row">
+                                            <span class="gd-icon">💳</span>
+                                            <span class="gd-label">Aadhar Number</span>
+                                            <span class="gd-val">XXXX XXXX 9198</span>
+                                        </div>
+                                        <div class="grid-detail-row">
+                                            <span class="gd-icon">🌐</span>
+                                            <span class="gd-label">Mother Tongue</span>
+                                            <span class="gd-val">Malayalam</span>
+                                        </div>
+                                        <div class="grid-detail-row">
+                                            <span class="gd-icon">🏷️</span>
+                                            <span class="gd-label">Category</span>
+                                            <span class="gd-val">Ezhava</span>
+                                        </div>
                                     </div>
-                                    <span>Student Profile</span>
-                                </button>
-                                <button class="resource-tile">
-                                    <div class="res-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line></svg>
+                                    <!-- Right Sub-column -->
+                                    <div class="details-column">
+                                        <div class="grid-detail-row">
+                                            <span class="gd-icon">🕉️</span>
+                                            <span class="gd-label">Religion</span>
+                                            <span class="gd-val">Hindu</span>
+                                        </div>
+                                        <div class="grid-detail-row">
+                                            <span class="gd-icon">👥</span>
+                                            <span class="gd-label">Caste</span>
+                                            <span class="gd-val">Ezhava</span>
+                                        </div>
+                                        <div class="grid-detail-row">
+                                            <span class="gd-icon">🇮🇳</span>
+                                            <span class="gd-label">Nationality</span>
+                                            <span class="gd-val">Indian</span>
+                                        </div>
+                                        <div class="grid-detail-row">
+                                            <span class="gd-icon">🩸</span>
+                                            <span class="gd-label">Blood Group</span>
+                                            <span class="gd-val">B-ve</span>
+                                        </div>
+                                        <div class="grid-detail-row">
+                                            <span class="gd-icon">♿</span>
+                                            <span class="gd-label">Differently Abled</span>
+                                            <span class="gd-val">No</span>
+                                        </div>
                                     </div>
-                                    <span>Exam Registration</span>
-                                </button>
-                                <button class="resource-tile">
-                                    <div class="res-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                                    </div>
-                                    <span>View Results</span>
-                                </button>
-                                <button class="resource-tile">
-                                    <div class="res-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v10m0 0l3-3m-3 3L9 9"></path><path d="M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"></path></svg>
-                                    </div>
-                                    <span>Apply for Forms</span>
-                                </button>
-                                <button class="resource-tile">
-                                    <div class="res-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                                    </div>
-                                    <span>Grievance Redressal</span>
-                                </button>
-                                <button class="resource-tile">
-                                    <div class="res-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                                    </div>
-                                    <span>Suraksha Profile</span>
-                                </button>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Important Information Card -->
-                        <div class="dash-card important-info-card">
-                            <div class="card-title-bar">
-                                <div class="title-left">
-                                    <div class="title-icon-circle icon-darkblue-bg">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                                    </div>
-                                    <h3>Important Information</h3>
+                        <!-- Accordion 2: Contact Details -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <div class="acc-title">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                    <span>Contact Details</span>
                                 </div>
-                                <a href="#" class="card-link">View All &rarr;</a>
+                                <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-body hidden">
+                                <div class="grid-2col-details">
+                                    <div class="details-column">
+                                        <div class="grid-detail-row"><span class="gd-icon">📱</span><span class="gd-label">Mobile Number</span><span class="gd-val">+91 9847123456</span></div>
+                                        <div class="grid-detail-row"><span class="gd-icon">✉️</span><span class="gd-label">Email Address</span><span class="gd-val">greeshma.p@example.com</span></div>
+                                    </div>
+                                    <div class="details-column">
+                                        <div class="grid-detail-row"><span class="gd-icon">🏠</span><span class="gd-label">Permanent Address</span><span class="gd-val">Kavitha Bhavan, Trivandrum, Kerala</span></div>
+                                        <div class="grid-detail-row"><span class="gd-icon">📮</span><span class="gd-label">Pincode</span><span class="gd-val">695001</span></div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="info-alert-box">
-                                <div class="green-doc-icon">
+                        </div>
+
+                        <!-- Accordion 3: Bank Account Details -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <div class="acc-title">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="21" width="18" height="2"></rect><rect x="3" y="10" width="18" height="2"></rect><path d="M5 10v11"></path><path d="M19 10v11"></path><path d="M9 10v11"></path><path d="M15 10v11"></path><path d="M12 2l9 8H3l9-8z"></path></svg>
+                                    <span>Bank Account Details</span>
+                                </div>
+                                <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-body hidden">
+                                <div class="grid-2col-details">
+                                    <div class="details-column">
+                                        <div class="grid-detail-row"><span class="gd-icon">🏛️</span><span class="gd-label">Bank Name</span><span class="gd-val">State Bank of India</span></div>
+                                        <div class="grid-detail-row"><span class="gd-icon">🔢</span><span class="gd-label">Account Number</span><span class="gd-val">3829XXXX481</span></div>
+                                    </div>
+                                    <div class="details-column">
+                                        <div class="grid-detail-row"><span class="gd-icon">🔖</span><span class="gd-label">IFSC Code</span><span class="gd-val">SBIN0001234</span></div>
+                                        <div class="grid-detail-row"><span class="gd-icon">🏢</span><span class="gd-label">Branch</span><span class="gd-val">Kazhakuttam Main</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 4: Qualification Details -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <div class="acc-title">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                                    <span>Qualification Details</span>
+                                </div>
+                                <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-body hidden">
+                                <div class="grid-2col-details">
+                                    <div class="details-column">
+                                        <div class="grid-detail-row"><span class="gd-icon">📜</span><span class="gd-label">Higher Secondary (12th)</span><span class="gd-val">96.4% (Kerala Higher Secondary Board)</span></div>
+                                    </div>
+                                    <div class="details-column">
+                                        <div class="grid-detail-row"><span class="gd-icon">🎒</span><span class="gd-label">SSLC (10th)</span><span class="gd-val">Full A+ (100%)</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 5: Additional Document -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <div class="acc-title">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                                    <span>Additional Document</span>
                                 </div>
-                                <p>Stay updated with the latest notifications, circulars and announcements from the university.</p>
+                                <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-body hidden">
+                                <div class="grid-2col-details">
+                                    <div class="details-column">
+                                        <div class="grid-detail-row"><span class="gd-icon">📁</span><span class="gd-label">Transfer Certificate</span><span class="gd-val">Verified & Submitted</span></div>
+                                    </div>
+                                    <div class="details-column">
+                                        <div class="grid-detail-row"><span class="gd-icon">🛡️</span><span class="gd-label">Conduct Certificate</span><span class="gd-val">Verified & Submitted</span></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Important Dates Card (Timeline) -->
-                        <div class="dash-card dates-card">
-                            <div class="card-title-bar">
-                                <div class="title-left">
-                                    <div class="title-icon-circle icon-darkblue-bg">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                                    </div>
-                                    <h3>Important Dates</h3>
+                        <!-- Accordion 6: Guardian Details -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <div class="acc-title">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                    <span>Guardian Details</span>
                                 </div>
-                                <a href="#" class="card-link">View All &rarr;</a>
-                            </div>
-                            <div class="timeline-list">
-                                <!-- Timeline Item 1 -->
-                                <div class="timeline-item">
-                                    <div class="tl-date-badge date-blue">
-                                        <span class="month">OCT</span>
-                                        <span class="day">12</span>
+                                <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </button>
+                            <div class="accordion-body hidden">
+                                <div class="grid-2col-details">
+                                    <div class="details-column">
+                                        <div class="grid-detail-row"><span class="gd-icon">👨</span><span class="gd-label">Father's Name</span><span class="gd-val">Preethan K.</span></div>
+                                        <div class="grid-detail-row"><span class="gd-icon">💼</span><span class="gd-label">Occupation</span><span class="gd-val">Government Service</span></div>
                                     </div>
-                                    <div class="tl-content">
-                                        <h4>S7 Regular Examination</h4>
-                                        <p class="tl-desc">Data Structures</p>
-                                        <span class="tl-time">10:00 AM - 01:00 PM</span>
-                                    </div>
-                                </div>
-
-                                <!-- Timeline Item 2 -->
-                                <div class="timeline-item">
-                                    <div class="tl-date-badge date-green">
-                                        <span class="month">OCT</span>
-                                        <span class="day">15</span>
-                                    </div>
-                                    <div class="tl-content">
-                                        <h4>Last Date for Exam Registration</h4>
-                                        <p class="tl-desc">(for S7)</p>
-                                    </div>
-                                </div>
-
-                                <!-- Timeline Item 3 -->
-                                <div class="timeline-item">
-                                    <div class="tl-date-badge date-yellow">
-                                        <span class="month">OCT</span>
-                                        <span class="day">20</span>
-                                    </div>
-                                    <div class="tl-content">
-                                        <h4>Internal Marks Publication</h4>
-                                        <p class="tl-desc">Database Management Systems</p>
-                                    </div>
-                                </div>
-
-                                <!-- Timeline Item 4 -->
-                                <div class="timeline-item">
-                                    <div class="tl-date-badge date-red">
-                                        <span class="month">OCT</span>
-                                        <span class="day">28</span>
-                                    </div>
-                                    <div class="tl-content">
-                                        <h4>Fee Payment Deadline</h4>
-                                        <p class="tl-desc">Semester 7</p>
+                                    <div class="details-column">
+                                        <div class="grid-detail-row"><span class="gd-icon">👩</span><span class="gd-label">Mother's Name</span><span class="gd-val">Greeshma Devi</span></div>
+                                        <div class="grid-detail-row"><span class="gd-icon">📞</span><span class="gd-label">Guardian Contact</span><span class="gd-val">+91 9447012345</span></div>
                                     </div>
                                 </div>
                             </div>

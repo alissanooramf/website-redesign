@@ -17,13 +17,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnArrow = submitBtn.querySelector('.btn-arrow');
     const loginSpinner = document.getElementById('loginSpinner');
 
-    // Dashboard Elements
+    // Dashboard Navigation & Elements
+    const menuToggleBtn = document.getElementById('menuToggleBtn');
+    const dashSidebar = document.getElementById('dashSidebar');
     const profilePillBtn = document.getElementById('profilePillBtn');
     const userDropdownMenu = document.getElementById('userDropdownMenu');
     const logoutBtn = document.getElementById('logoutBtn');
     const changePasswordBtn = document.getElementById('changePasswordBtn');
-    const sidebarNavItems = document.querySelectorAll('.sidebar-nav .nav-item');
-    const sidebarHelpBox = document.getElementById('sidebarHelpBox');
+    
+    // Submenu Elements
+    const studentParentItem = document.getElementById('studentParentItem');
+    const studentSubmenu = document.getElementById('studentSubmenu');
+    const viewProfileLink = document.getElementById('viewProfileLink');
+    const resStudentProfile = document.getElementById('resStudentProfile');
+    const crumbHome = document.getElementById('crumbHome');
+
+    // Tab Panes
+    const tabHome = document.getElementById('tabHome');
+    const tabStudentProfile = document.getElementById('tabStudentProfile');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    // Profile Horizontal Tabs & Accordions
+    const pTabBtns = document.querySelectorAll('.p-tab-btn');
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
 
     // Modals & Toast
     const topHelpBtn = document.getElementById('topHelpBtn');
@@ -35,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeSupportModal = document.getElementById('closeSupportModal');
     const toastContainer = document.getElementById('toastContainer');
     const recoveryForm = document.getElementById('recoveryForm');
+    const sidebarHelpBox = document.getElementById('sidebarHelpBox');
 
     // Toggle Password Visibility
     togglePasswordBtn.addEventListener('click', () => {
@@ -80,20 +97,17 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Show loading state
         submitBtn.disabled = true;
         btnText.textContent = 'Authenticating...';
         btnArrow.classList.add('hidden');
         loginSpinner.classList.remove('hidden');
 
-        // Simulate Authentication Delay
         setTimeout(() => {
             submitBtn.disabled = false;
             btnText.textContent = 'Login';
             btnArrow.classList.remove('hidden');
             loginSpinner.classList.add('hidden');
 
-            // Switch to Dashboard View
             loginView.classList.add('hidden');
             dashboardView.classList.remove('hidden');
 
@@ -115,6 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
             passwordInput.classList.remove('invalid');
         }
     });
+
+    // Mobile Sidebar Toggle
+    if (menuToggleBtn && dashSidebar) {
+        menuToggleBtn.addEventListener('click', () => {
+            dashSidebar.classList.toggle('mobile-open');
+        });
+    }
 
     // User Profile Dropdown Toggle
     if (profilePillBtn && userDropdownMenu) {
@@ -140,7 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Change Password Action
     if (changePasswordBtn) {
         changePasswordBtn.addEventListener('click', () => {
             userDropdownMenu.classList.add('hidden');
@@ -148,15 +168,110 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Sidebar Navigation Active Switching
-    sidebarNavItems.forEach(item => {
+    // Switch Main Content Tab (e.g. Home vs Student Profile)
+    function switchMainTab(targetTabId) {
+        tabPanes.forEach(pane => pane.classList.add('hidden'));
+
+        if (targetTabId === 'tabStudentProfile') {
+            tabStudentProfile.classList.remove('hidden');
+        } else {
+            tabHome.classList.remove('hidden');
+        }
+
+        // Scroll to top of content
+        document.querySelector('.dash-content').scrollTop = 0;
+    }
+
+    // Sidebar Student Submenu Toggle
+    if (studentParentItem && studentSubmenu) {
+        const studentNavLink = studentParentItem.querySelector('.nav-has-submenu');
+        studentNavLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            studentParentItem.classList.toggle('expanded');
+            studentSubmenu.classList.toggle('submenu-open');
+        });
+    }
+
+    // Submenu Items Navigation
+    const submenuItems = document.querySelectorAll('.submenu-item');
+    submenuItems.forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
-            sidebarNavItems.forEach(nav => nav.classList.remove('active'));
+            submenuItems.forEach(sub => sub.classList.remove('active'));
             item.classList.add('active');
+
+            const tab = item.dataset.tab;
+            if (tab === 'tabStudentProfile') {
+                switchMainTab('tabStudentProfile');
+            } else {
+                const label = item.innerText.trim();
+                showToast(`Opening ${label}...`, 'info');
+            }
+        });
+    });
+
+    // Sidebar Main Nav Item Clicks (e.g., Home)
+    const mainNavItems = document.querySelectorAll('.sidebar-nav > .nav-item');
+    mainNavItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            mainNavItems.forEach(nav => nav.classList.remove('active'));
+            item.classList.add('active');
+
+            const tab = item.dataset.tab;
+            if (tab === 'tabHome') {
+                switchMainTab('tabHome');
+            }
+        });
+    });
+
+    // Quick links to Profile
+    if (viewProfileLink) {
+        viewProfileLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchMainTab('tabStudentProfile');
+        });
+    }
+
+    if (resStudentProfile) {
+        resStudentProfile.addEventListener('click', () => {
+            switchMainTab('tabStudentProfile');
+        });
+    }
+
+    if (crumbHome) {
+        crumbHome.addEventListener('click', () => {
+            switchMainTab('tabHome');
+        });
+    }
+
+    // Student Profile Horizontal Tabs Switching
+    pTabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            pTabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const ptab = btn.dataset.ptab;
+            const tabName = btn.innerText.trim();
+            showToast(`Switched to ${tabName} section.`, 'info');
+        });
+    });
+
+    // Accordion Expand / Collapse Handling
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const accordionItem = header.parentElement;
+            const accordionBody = accordionItem.querySelector('.accordion-body');
             
-            const label = item.querySelector('.nav-label').textContent;
-            showToast(`Navigated to ${label} section.`, 'info');
+            const isExpanded = accordionItem.classList.contains('expanded');
+            
+            if (isExpanded) {
+                accordionItem.classList.remove('expanded');
+                accordionBody.classList.add('hidden');
+            } else {
+                accordionItem.classList.add('expanded');
+                accordionBody.classList.remove('hidden');
+            }
         });
     });
 
@@ -166,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Modals
+    // Modals Handling
     function openModal(modal) {
         modal.classList.remove('hidden');
     }
@@ -200,14 +315,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Toast Notification Utility
+    // Toast Utility
     function showToast(message, type = 'info') {
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
         
         let icon = 'ℹ️';
         if (type === 'success') icon = '✓';
-        if (type === 'error') icon = '✕';
 
         toast.innerHTML = `<span style="font-weight: 800;">${icon}</span> <span>${message}</span>`;
         toastContainer.appendChild(toast);
@@ -217,6 +331,6 @@ document.addEventListener('DOMContentLoaded', () => {
             toast.style.transform = 'translateY(10px)';
             toast.style.transition = 'all 0.3s ease';
             setTimeout(() => toast.remove(), 300);
-        }, 3500);
+        }, 3200);
     }
 });
