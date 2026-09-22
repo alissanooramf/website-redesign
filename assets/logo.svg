@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 150" width="120" height="150" fill="none">
+    <!-- Top Text Header -->
+    <g fill="#8a1236" font-family="'Times New Roman', Times, serif" font-weight="bold" text-anchor="middle">
+        <text x="60" y="12" font-size="7.5" letter-spacing="0.4">APJ ABDUL KALAM</text>
+        <text x="60" y="21" font-size="7.5" letter-spacing="0.4">TECHNOLOGICAL</text>
+        <text x="60" y="30" font-size="7.5" letter-spacing="0.4">UNIVERSITY</text>
+    </g>
+
+    <!-- Middle Blue Rectangle Block -->
+    <g>
+        <!-- Blue Left & Right Quadrants -->
+        <rect x="10" y="36" width="48" height="44" fill="#0d5ca4"/>
+        <rect x="62" y="36" width="48" height="44" fill="#0d5ca4"/>
+        
+        <!-- White Cross / Divider Gap -->
+        <rect x="58" y="36" width="4" height="44" fill="#ffffff"/>
+
+        <!-- KTU Serif Text Overlay -->
+        <g font-family="'Times New Roman', Times, serif" font-size="36" font-weight="bold">
+            <!-- K -->
+            <text x="32" y="70" fill="#ffffff" text-anchor="middle">K</text>
+            <!-- T with maroon middle bar -->
+            <text x="60" y="70" fill="#ffffff" text-anchor="middle">T</text>
+            <rect x="58.5" y="44" width="3" height="26" fill="#8a1236"/>
+            <!-- U -->
+            <text x="88" y="70" fill="#ffffff" text-anchor="middle">U</text>
+        </g>
+    </g>
+
+    <!-- Bottom Olive Shield -->
+    <g>
+        <!-- Shield Background Path -->
+        <path d="M10 80 L110 80 L110 92 C110 122, 60 145, 60 145 C60 145, 10 122, 10 92 Z" fill="#696a22"/>
+        <path d="M10 80 L110 80 L110 92 C110 122, 60 145, 60 145 C60 145, 10 122, 10 92 Z" stroke="#52531a" stroke-width="1.5"/>
+
+        <!-- Vertical White Line in Shield -->
+        <line x1="60" y1="80" x2="60" y2="142" stroke="#ffffff" stroke-width="3"/>
+
+        <!-- Center Circular Seal -->
+        <circle cx="60" cy="110" r="16" fill="#ffffff" stroke="#52531a" stroke-width="1.5"/>
+        <circle cx="60" cy="110" r="14" fill="#ffffff" stroke="#d4af37" stroke-width="1"/>
+
+        <!-- Seal Text: Estd 2014 -->
+        <text x="60" y="101" font-family="sans-serif" font-size="4.5" font-weight="bold" fill="#333333" text-anchor="middle">Estd</text>
+        
+        <!-- Open Book Symbol in Seal -->
+        <path d="M52 110 C54 107, 58 107, 60 109 C62 107, 66 107, 68 110 L68 118 C66 115, 62 115, 60 117 C58 115, 54 115, 52 118 Z" fill="#8a1236"/>
+        <path d="M60 109 L60 117" stroke="#ffffff" stroke-width="0.8"/>
+
+        <text x="60" y="123" font-family="sans-serif" font-size="4.5" font-weight="bold" fill="#333333" text-anchor="middle">2014</text>
+    </g>
+</svg>
