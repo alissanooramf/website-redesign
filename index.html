@@ -289,132 +289,36 @@
             <!-- Left Dark Navy Sidebar -->
             <aside class="dash-sidebar" id="dashSidebar">
                 <nav class="sidebar-nav">
-                    <!-- Home item -->
+                    <!-- Dashboard item -->
                     <a href="#" class="nav-item active" data-tab="tabHome">
                         <span class="nav-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                         </span>
-                        <span class="nav-label">Home</span>
+                        <span class="nav-label">Dashboard</span>
                     </a>
 
-                    <!-- Student parent item with dropdown arrow -->
-                    <div class="nav-parent-item" id="studentParentItem">
-                        <a href="#" class="nav-item nav-has-submenu">
-                            <span class="nav-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                            </span>
-                            <span class="nav-label">Student</span>
-                            <svg class="submenu-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </a>
-                        
-                        <!-- Collapsible Submenu (Deduplicated) -->
-                        <div class="submenu-list" id="studentSubmenu">
-                            <a href="#" class="submenu-item" data-tab="tabStudentProfile">
-                                <span class="sub-dot"></span>
-                                <span>My Profile</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>Student Data Correction Request</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>Course/Semester Exam Registration</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>Cancellation Requests</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>Minor Degree</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>Admission Cancellation / Course Completion</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>Honours Degree</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>Special FE Registration</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>My Fees</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>Program Duration Extension</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>PWD Eligibility / Grace Mark Request</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>Malpractice Decisions</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>Non-KTU / Previously Done Course Registration Request</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>My Payment Transactions</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>Student Condonation Request</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>Convocation</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>Feedback Form</span>
-                            </a>
-                            <a href="#" class="submenu-item">
-                                <span class="sub-dot"></span>
-                                <span>Reports</span>
-                            </a>
-                        </div>
-                    </div>
+                    <!-- Payment Request item -->
+                    <a href="#" class="nav-item" data-tab="tabPaymentRequest">
+                        <span class="nav-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        </span>
+                        <span class="nav-label">Payment Request</span>
+                    </a>
 
+                    <!-- Update Contact Info item -->
+                    <a href="#" class="nav-item">
+                        <span class="nav-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </span>
+                        <span class="nav-label">Update Contact Info</span>
+                    </a>
+
+                    <!-- Reports item -->
                     <a href="#" class="nav-item">
                         <span class="nav-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                         </span>
-                        <span class="nav-label">Exam</span>
-                    </a>
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                        </span>
-                        <span class="nav-label">Result</span>
-                    </a>
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                        </span>
-                        <span class="nav-label">Grievance Redressal Tickets</span>
-                    </a>
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-                        </span>
-                        <span class="nav-label">Forms</span>
-                    </a>
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        </span>
-                        <span class="nav-label">Suraksha</span>
+                        <span class="nav-label">Reports</span>
                     </a>
                 </nav>
 
@@ -636,7 +540,7 @@
                                         </div>
                                         <span>Apply for Forms</span>
                                     </button>
-                                    <button class="resource-tile">
+                                    <button class="resource-tile" id="resGrievanceRedressal" data-tab="tabGrievanceRedressal">
                                         <div class="res-icon">
                                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                                         </div>
@@ -732,7 +636,316 @@
                     </div>
                 </div>
 
-                <!-- TAB 2: STUDENT PROFILE PAGE VIEW -->
+                <!-- TAB 2: PAYMENT REQUEST PAGE VIEW -->
+                <div id="tabPaymentRequest" class="tab-pane hidden">
+                    <!-- Page Header -->
+                    <div class="page-header-section">
+                        <h1 class="page-title-bold">Payment Request</h1>
+                        <p class="page-subtitle-gray">View and manage your payment requests and fee details.</p>
+                    </div>
+
+                    <!-- Search Payment Requests Section -->
+                    <div class="dash-card search-filters-card">
+                        <div class="card-title-bar">
+                            <div class="title-left">
+                                <div class="title-icon-circle icon-darkblue-bg">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                </div>
+                                <h3>Search Payment Requests</h3>
+                            </div>
+                        </div>
+                        <div class="filters-grid">
+                            <div class="filter-group">
+                                <label class="filter-label">Process Type</label>
+                                <select class="filter-select">
+                                    <option>All</option>
+                                    <option>Exam</option>
+                                    <option>Certificate</option>
+                                    <option>Registration</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">Payment Type</label>
+                                <select class="filter-select">
+                                    <option>All</option>
+                                    <option>Semester Fee</option>
+                                    <option>Certificate Fee</option>
+                                    <option>Registration Fee</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">Academic Year</label>
+                                <select class="filter-select">
+                                    <option>2023 - 2024</option>
+                                    <option>2022 - 2023</option>
+                                    <option>2021 - 2022</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">Program</label>
+                                <select class="filter-select">
+                                    <option>B.Tech Computer Science & Engineering</option>
+                                    <option>B.Tech Electronics</option>
+                                    <option>M.Tech</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">Exam Definition</label>
+                                <select class="filter-select">
+                                    <option>S7 Regular</option>
+                                    <option>S8 Regular</option>
+                                    <option>Supplementary</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">Request ID</label>
+                                <input type="text" class="filter-input" placeholder="Enter Request ID">
+                            </div>
+                            <div class="filter-actions">
+                                <button class="btn-search">Search</button>
+                                <button class="btn-reset">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Requests Table -->
+                    <div class="dash-card payment-table-card">
+                        <div class="card-title-bar">
+                            <div class="title-left">
+                                <div class="title-icon-circle icon-darkblue-bg">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M6 8h12"></path><circle cx="16" cy="14" r="2"></circle></svg>
+                                </div>
+                                <h3>Payment Requests</h3>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="payment-table">
+                                <thead>
+                                    <tr>
+                                        <th>Fee Type</th>
+                                        <th>Request ID</th>
+                                        <th>Amount</th>
+                                        <th>Due Date</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Semester Examination Fee</td>
+                                        <td>REQ-2024-001</td>
+                                        <td>₹2,500</td>
+                                        <td>15 Oct 2024</td>
+                                        <td><span class="status-badge status-pending">Pending</span></td>
+                                        <td>
+                                            <button class="action-btn btn-pay">Pay Now</button>
+                                            <button class="action-btn btn-view">View Details</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Transcript Certificate Fee</td>
+                                        <td>REQ-2024-002</td>
+                                        <td>₹1,200</td>
+                                        <td>20 Oct 2024</td>
+                                        <td><span class="status-badge status-pending">Pending</span></td>
+                                        <td>
+                                            <button class="action-btn btn-pay">Pay Now</button>
+                                            <button class="action-btn btn-view">View Details</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Course Registration Fee</td>
+                                        <td>REQ-2024-003</td>
+                                        <td>₹800</td>
+                                        <td>25 Oct 2024</td>
+                                        <td><span class="status-badge status-paid">Paid</span></td>
+                                        <td>
+                                            <button class="action-btn btn-view">View Details</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Migration Certificate Fee</td>
+                                        <td>REQ-2024-004</td>
+                                        <td>₹1,500</td>
+                                        <td>30 Oct 2024</td>
+                                        <td><span class="status-badge status-pending">Pending</span></td>
+                                        <td>
+                                            <button class="action-btn btn-pay">Pay Now</button>
+                                            <button class="action-btn btn-view">View Details</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Convocation Fee</td>
+                                        <td>REQ-2024-005</td>
+                                        <td>₹3,000</td>
+                                        <td>10 Nov 2024</td>
+                                        <td><span class="status-badge status-overdue">Overdue</span></td>
+                                        <td>
+                                            <button class="action-btn btn-pay">Pay Now</button>
+                                            <button class="action-btn btn-view">View Details</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: GRIEVANCE REDRESSAL PAGE VIEW -->
+                <div id="tabGrievanceRedressal" class="tab-pane hidden">
+                    <!-- Page Header -->
+                    <div class="page-header-section">
+                        <div class="header-with-action">
+                            <div>
+                                <h1 class="page-title-bold">Grievance Redressal Tickets</h1>
+                                <p class="page-subtitle-gray">Raise, track and manage your grievances with the university.</p>
+                            </div>
+                            <button class="btn-create-grievance">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                Create New Grievance Ticket
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Search Tickets Section -->
+                    <div class="dash-card search-filters-card">
+                        <div class="card-title-bar">
+                            <div class="title-left">
+                                <div class="title-icon-circle icon-darkblue-bg">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                </div>
+                                <h3>Search Tickets</h3>
+                            </div>
+                        </div>
+                        <div class="filters-grid-inline">
+                            <div class="filter-group-inline">
+                                <label class="filter-label">Ticket Number</label>
+                                <input type="text" class="filter-input" placeholder="Enter Ticket Number">
+                            </div>
+                            <div class="filter-group-inline">
+                                <label class="filter-label">Ticket Status</label>
+                                <select class="filter-select">
+                                    <option>All</option>
+                                    <option>Open</option>
+                                    <option>In Progress</option>
+                                    <option>Resolved</option>
+                                    <option>Closed</option>
+                                </select>
+                            </div>
+                            <div class="filter-group-inline">
+                                <label class="filter-label">Category</label>
+                                <select class="filter-select">
+                                    <option>All</option>
+                                    <option>Examination</option>
+                                    <option>Academic Records</option>
+                                    <option>Academics</option>
+                                    <option>General</option>
+                                </select>
+                            </div>
+                            <div class="filter-actions-inline">
+                                <button class="btn-search">Search</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Your Grievance Tickets Section -->
+                    <div class="dash-card grievance-tickets-card">
+                        <div class="card-title-bar">
+                            <div class="title-left">
+                                <div class="title-icon-circle icon-darkblue-bg">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                </div>
+                                <h3>Your Grievance Tickets</h3>
+                            </div>
+                        </div>
+                        <div class="grievance-tickets-list">
+                            <!-- Ticket 1 -->
+                            <div class="grievance-ticket-card">
+                                <div class="ticket-left">
+                                    <div class="ticket-icon ticket-icon-exam">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                                    </div>
+                                    <div class="ticket-content">
+                                        <h4 class="ticket-title">Examination Schedule Clarification</h4>
+                                        <div class="ticket-meta">
+                                            <span class="ticket-category">Examination</span>
+                                            <span class="ticket-date">Submitted on: 15 Oct 2024</span>
+                                        </div>
+                                        <p class="ticket-description">Need clarification regarding the S7 examination schedule for Data Structures subject.</p>
+                                        <span class="status-badge status-open">Open</span>
+                                    </div>
+                                </div>
+                                <button class="btn-view-ticket">View Details</button>
+                            </div>
+
+                            <!-- Ticket 2 -->
+                            <div class="grievance-ticket-card">
+                                <div class="ticket-left">
+                                    <div class="ticket-icon ticket-icon-doc">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                                    </div>
+                                    <div class="ticket-content">
+                                        <h4 class="ticket-title">Marksheet Correction Request</h4>
+                                        <div class="ticket-meta">
+                                            <span class="ticket-category">Academic Records</span>
+                                            <span class="ticket-date">Submitted on: 10 Oct 2024</span>
+                                        </div>
+                                        <p class="ticket-description">Requesting correction in marks for Database Management Systems subject.</p>
+                                        <span class="status-badge status-inprogress">In Progress</span>
+                                    </div>
+                                </div>
+                                <button class="btn-view-ticket">View Details</button>
+                            </div>
+
+                            <!-- Ticket 3 -->
+                            <div class="grievance-ticket-card">
+                                <div class="ticket-left">
+                                    <div class="ticket-icon ticket-icon-check">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    </div>
+                                    <div class="ticket-content">
+                                        <h4 class="ticket-title">Course Registration Issue</h4>
+                                        <div class="ticket-meta">
+                                            <span class="ticket-category">Academics</span>
+                                            <span class="ticket-date">Submitted on: 05 Oct 2024</span>
+                                        </div>
+                                        <p class="ticket-description">Issue with elective course registration for S7 semester.</p>
+                                        <span class="status-badge status-resolved">Resolved</span>
+                                    </div>
+                                </div>
+                                <button class="btn-view-ticket">View Details</button>
+                            </div>
+
+                            <!-- Ticket 4 -->
+                            <div class="grievance-ticket-card">
+                                <div class="ticket-left">
+                                    <div class="ticket-icon ticket-icon-chat">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                    </div>
+                                    <div class="ticket-content">
+                                        <h4 class="ticket-title">Library Access Query</h4>
+                                        <div class="ticket-meta">
+                                            <span class="ticket-category">General</span>
+                                            <span class="ticket-date">Submitted on: 01 Oct 2024</span>
+                                        </div>
+                                        <p class="ticket-description">Query regarding digital library access for research papers.</p>
+                                        <span class="status-badge status-closed">Closed</span>
+                                    </div>
+                                </div>
+                                <button class="btn-view-ticket">View Details</button>
+                            </div>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="pagination-controls">
+                            <button class="pagination-btn" disabled>Previous</button>
+                            <span class="pagination-info">Page 1 of 1</span>
+                            <button class="pagination-btn" disabled>Next</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: STUDENT PROFILE PAGE VIEW -->
                 <div id="tabStudentProfile" class="tab-pane hidden">
                     <!-- Breadcrumbs & Title -->
                     <div class="profile-header-top">

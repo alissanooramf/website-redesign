@@ -30,11 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const studentSubmenu = document.getElementById('studentSubmenu');
     const viewProfileLink = document.getElementById('viewProfileLink');
     const resStudentProfile = document.getElementById('resStudentProfile');
+    const resGrievanceRedressal = document.getElementById('resGrievanceRedressal');
     const crumbHome = document.getElementById('crumbHome');
 
     // Tab Panes
     const tabHome = document.getElementById('tabHome');
     const tabStudentProfile = document.getElementById('tabStudentProfile');
+    const tabPaymentRequest = document.getElementById('tabPaymentRequest');
+    const tabGrievanceRedressal = document.getElementById('tabGrievanceRedressal');
     const tabPanes = document.querySelectorAll('.tab-pane');
 
     // Profile Horizontal Tabs & Accordions
@@ -168,12 +171,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Switch Main Content Tab (e.g. Home vs Student Profile)
+    // Switch Main Content Tab (e.g. Home vs Student Profile vs Payment Request vs Grievance Redressal)
     function switchMainTab(targetTabId) {
         tabPanes.forEach(pane => pane.classList.add('hidden'));
 
         if (targetTabId === 'tabStudentProfile') {
             tabStudentProfile.classList.remove('hidden');
+        } else if (targetTabId === 'tabPaymentRequest') {
+            tabPaymentRequest.classList.remove('hidden');
+        } else if (targetTabId === 'tabGrievanceRedressal') {
+            tabGrievanceRedressal.classList.remove('hidden');
         } else {
             tabHome.classList.remove('hidden');
         }
@@ -210,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Sidebar Main Nav Item Clicks (e.g., Home)
+    // Sidebar Main Nav Item Clicks (e.g., Home, Payment Request, Grievance Redressal)
     const mainNavItems = document.querySelectorAll('.sidebar-nav > .nav-item');
     mainNavItems.forEach(item => {
         item.addEventListener('click', (e) => {
@@ -221,6 +228,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const tab = item.dataset.tab;
             if (tab === 'tabHome') {
                 switchMainTab('tabHome');
+            } else if (tab === 'tabPaymentRequest') {
+                switchMainTab('tabPaymentRequest');
+            } else if (tab === 'tabGrievanceRedressal') {
+                switchMainTab('tabGrievanceRedressal');
+            } else {
+                const label = item.querySelector('.nav-label').textContent;
+                showToast(`Opening ${label}...`, 'info');
             }
         });
     });
@@ -236,6 +250,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (resStudentProfile) {
         resStudentProfile.addEventListener('click', () => {
             switchMainTab('tabStudentProfile');
+        });
+    }
+
+    if (resGrievanceRedressal) {
+        resGrievanceRedressal.addEventListener('click', () => {
+            switchMainTab('tabGrievanceRedressal');
         });
     }
 
