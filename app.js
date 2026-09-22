@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabApplyForForms = document.getElementById('tabApplyForForms');
     const tabSurakshaProfile = document.getElementById('tabSurakshaProfile');
     const tabUpdateContactInfo = document.getElementById('tabUpdateContactInfo');
+    const tabReports = document.getElementById('tabReports');
     const tabPanes = document.querySelectorAll('.tab-pane');
 
     // Profile Horizontal Tabs & Accordions
@@ -180,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Switch Main Content Tab (e.g. Home vs Student Profile vs Payment Request vs Grievance Redressal vs Exam Registration vs View Results vs Apply for Forms vs Suraksha Profile)
+    // Switch Main Content Tab (e.g. Home vs Student Profile vs Payment Request vs Grievance Redressal vs Exam Registration vs View Results vs Apply for Forms vs Suraksha Profile vs Update Contact Info vs Reports)
     function switchMainTab(targetTabId) {
         tabPanes.forEach(pane => pane.classList.add('hidden'));
 
@@ -200,6 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tabSurakshaProfile.classList.remove('hidden');
         } else if (targetTabId === 'tabUpdateContactInfo') {
             tabUpdateContactInfo.classList.remove('hidden');
+        } else if (targetTabId === 'tabReports') {
+            tabReports.classList.remove('hidden');
         } else {
             tabHome.classList.remove('hidden');
         }
@@ -236,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Sidebar Main Nav Item Clicks (e.g., Home, Payment Request, Grievance Redressal)
+    // Sidebar Main Nav Item Clicks (e.g., Home, Payment Request, Grievance Redressal, Update Contact Info, Reports)
     const mainNavItems = document.querySelectorAll('.sidebar-nav > .nav-item');
     mainNavItems.forEach(item => {
         item.addEventListener('click', (e) => {
@@ -253,6 +256,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 switchMainTab('tabGrievanceRedressal');
             } else if (tab === 'tabUpdateContactInfo') {
                 switchMainTab('tabUpdateContactInfo');
+            } else if (tab === 'tabReports') {
+                switchMainTab('tabReports');
             } else {
                 const label = item.querySelector('.nav-label').textContent;
                 showToast(`Opening ${label}...`, 'info');
@@ -311,6 +316,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToResourcesProfile = document.getElementById('backToResourcesProfile');
     const backToResourcesGrievance = document.getElementById('backToResourcesGrievance');
     const backToResourcesSuraksha = document.getElementById('backToResourcesSuraksha');
+    const backToResourcesContact = document.getElementById('backToResourcesContact');
+    const backToResourcesReports = document.getElementById('backToResourcesReports');
 
     if (backToResourcesExam) {
         backToResourcesExam.addEventListener('click', () => {
@@ -344,6 +351,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (backToResourcesSuraksha) {
         backToResourcesSuraksha.addEventListener('click', () => {
+            switchMainTab('tabHome');
+        });
+    }
+
+    if (backToResourcesContact) {
+        backToResourcesContact.addEventListener('click', () => {
+            switchMainTab('tabHome');
+        });
+    }
+
+    if (backToResourcesReports) {
+        backToResourcesReports.addEventListener('click', () => {
             switchMainTab('tabHome');
         });
     }

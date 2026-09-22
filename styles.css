@@ -2055,6 +2055,89 @@ body {
     margin-bottom: 4px;
 }
 
+/* Contact Form Styles */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-form .form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.contact-form .form-input {
+    padding: 12px 16px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.contact-form .form-input:focus {
+    background-color: #ffffff;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+}
+
+.contact-form textarea.form-input {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Reports List Styles */
+.reports-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.report-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-sm);
+}
+
+.report-info {
+    flex: 1;
+}
+
+.report-info h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0b2545;
+    margin-bottom: 6px;
+}
+
+.report-info p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+}
+
+.report-date {
+    font-size: 0.82rem;
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
 .green-doc-icon {
     width: 36px;
     height: 36px;

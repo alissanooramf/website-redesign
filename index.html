@@ -314,7 +314,7 @@
                     </a>
 
                     <!-- Reports item -->
-                    <a href="#" class="nav-item">
+                    <a href="#" class="nav-item" data-tab="tabReports">
                         <span class="nav-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                         </span>
@@ -1134,7 +1134,98 @@
                     </div>
                 </div>
 
-                <!-- TAB 8: STUDENT PROFILE PAGE VIEW -->
+                <!-- TAB 8: UPDATE CONTACT INFO PAGE VIEW -->
+                <div id="tabUpdateContactInfo" class="tab-pane hidden">
+                    <!-- Page Header with Back Button -->
+                    <div class="page-header-section">
+                        <button class="back-to-resources-btn" id="backToResourcesContact">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to Dashboard
+                        </button>
+                        <h1 class="page-title-bold">Update Contact Info</h1>
+                        <p class="page-subtitle-gray">Update your contact information and communication preferences.</p>
+                    </div>
+
+                    <!-- Contact Info Form -->
+                    <div class="dash-card">
+                        <div class="card-title-bar">
+                            <div class="title-left">
+                                <div class="title-icon-circle icon-darkblue-bg">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                </div>
+                                <h3>Contact Information</h3>
+                            </div>
+                        </div>
+                        <div class="contact-form">
+                            <div class="form-group">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-input" value="sarah.jenkins@ktu.edu.in">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-input" value="+91 98765 43210">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Address</label>
+                                <textarea class="form-input" rows="3">123, Main Street, Thiruvananthapuram, Kerala - 695001</textarea>
+                            </div>
+                            <button class="btn-register">Update Information</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 9: REPORTS PAGE VIEW -->
+                <div id="tabReports" class="tab-pane hidden">
+                    <!-- Page Header with Back Button -->
+                    <div class="page-header-section">
+                        <button class="back-to-resources-btn" id="backToResourcesReports">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to Dashboard
+                        </button>
+                        <h1 class="page-title-bold">Reports</h1>
+                        <p class="page-subtitle-gray">View and download various academic and administrative reports.</p>
+                    </div>
+
+                    <!-- Reports Content -->
+                    <div class="dash-card">
+                        <div class="card-title-bar">
+                            <div class="title-left">
+                                <div class="title-icon-circle icon-darkblue-bg">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                </div>
+                                <h3>Available Reports</h3>
+                            </div>
+                        </div>
+                        <div class="reports-list">
+                            <div class="report-item">
+                                <div class="report-info">
+                                    <h4>Academic Transcript</h4>
+                                    <p>Complete academic record with all semester results</p>
+                                    <span class="report-date">Last Updated: 10 Sep 2024</span>
+                                </div>
+                                <button class="btn-view-result">Download</button>
+                            </div>
+                            <div class="report-item">
+                                <div class="report-info">
+                                    <h4>Attendance Report</h4>
+                                    <p>Attendance summary for current academic year</p>
+                                    <span class="report-date">Last Updated: 15 Sep 2024</span>
+                                </div>
+                                <button class="btn-view-result">Download</button>
+                            </div>
+                            <div class="report-item">
+                                <div class="report-info">
+                                    <h4>Fee Payment History</h4>
+                                    <p>Complete record of all fee payments made</p>
+                                    <span class="report-date">Last Updated: 20 Sep 2024</span>
+                                </div>
+                                <button class="btn-view-result">Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 10: STUDENT PROFILE PAGE VIEW -->
                 <div id="tabStudentProfile" class="tab-pane hidden">
                     <!-- Breadcrumbs & Title -->
                     <div class="profile-header-top">
